@@ -1,0 +1,16 @@
+{
+  "name": "mini-program-utils",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "babel -w --presets env,stage-1 ./libs/index.js -o index.js",
+    "build": "babel --presets env,stage-1 ./libs/index.js -o index.js"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-1": "^6.24.1"
+  }
+}
