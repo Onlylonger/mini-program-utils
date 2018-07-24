@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "babel -w --presets env,stage-1 ./libs/index.js -o index.js",
-    "build": "babel --presets env,stage-1 ./libs/index.js -o index.js"
+    "dev": "babel -w --presets env,stage-1 ./libs -d dist",
+    "build": "babel --presets env,stage-1 ./libs -d dist --no-comments --minified"
   },
   "devDependencies": {
     "babel": "^6.23.0",
