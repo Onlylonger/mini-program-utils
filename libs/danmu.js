@@ -1,9 +1,4 @@
-function RandomNumBoth(Min, Max) {
-  var Range = Max - Min
-  var Rand = Math.random()
-  var num = Min + Math.round(Rand * Range) // 四舍五入
-  return num
-}
+import random from 'lodash.random'
 
 export default class Danmu {
   running = false
@@ -57,7 +52,7 @@ export default class Danmu {
     }
     const entityInfo = getEntityInfo(this.canvasCtx)
     Object.assign(tmp, entityInfo, {
-      sy: RandomNumBoth(0, this.config.canvasHeight - entityInfo.height)
+      sy: random(0, this.config.canvasHeight - entityInfo.height)
     })
     this.queue.push(tmp)
     console.log(this.queue)
