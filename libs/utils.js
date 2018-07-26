@@ -6,7 +6,7 @@
 
 export const getUnixTimeInfo = unixTimeStamp => {
   const curDate = new Date(unixTimeStamp * 1000)
-  const year = curDate.getFullYear()
+  const year = `${curDate.getFullYear()}`
   const month = `0${curDate.getMonth() + 1}`.slice(-2)
   const date = `0${curDate.getDate()}`.slice(-2)
   const hours = `0${curDate.getHours()}`.slice(-2)
@@ -43,7 +43,7 @@ export const getOrderNumberAry = (begin, end, addNum = 1) => {
  * @param {number} month
  * @return {number[]}
  */
-export const getMonthDay = (year, month) => {
+export const getMonthDaysAry = (year, month) => {
   // 判断是否闰年
   const isLeapYear = year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)
   let array
