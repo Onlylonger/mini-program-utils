@@ -1,7 +1,5 @@
 export const getUnixTimeInfo = unixTimeStamp => {
-  if (typeof timeStamp !== 'number')
-    throw new Error('timeStamp must be number type')
-  const curDate = new Date(v * 1000)
+  const curDate = new Date(unixTimeStamp * 1000)
   const year = curDate.getFullYear()
   const month = `0${curDate.getMonth() + 1}`.slice(-2)
   const date = `0${curDate.getDate()}`.slice(-2)
