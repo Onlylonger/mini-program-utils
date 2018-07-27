@@ -1,7 +1,5 @@
 # 使用
 
-> 依赖于微信 wx 库
-
 > 原生小程序
 
 将 dist 目录中对应文件模块拷贝到项目中使用, dist 目录文件已经经过 babel 转译
@@ -25,6 +23,23 @@ npm install mini-program-utils
 
   - `{ String } url`
   - `{ Object } opts`
+    - `{ Number } [timeout]`: 重连间隔时间
+    - `{ Number } [maxAttempts]`: 尝试重连最大次数
+    - `{ Function } [onMessage]`: 下行消息回掉函数
+    - `{ Function } [onClose]`: 链接关闭回掉函数
+    - `{ Function } [onError]`: 链接链接异常回掉函数
+    - `{ Function } [onOpen]`: 链接打开回掉函数
+    - `{ Function } [onReconnect]`: 链接重连回掉函数
+    - `{ Function } [onMaximum]`: 重连达到最大次数回掉函数
+
+- 默认
+
+```js
+opts = {
+  timeout: 1e3,
+  maxAttempts: Infinity
+}
+```
 
 - 使用:
 
@@ -76,15 +91,93 @@ socket.send({
 })
 ```
 
-### close(code, reason)
+### close([code, reason])
 
 - 参数
 
-  - `{ Number } code`
-  - `{ String } reason`
+  - `{ Number } [code]`
+  - `{ String } [reason]`
 
 - 使用
 
 ```js
 socket.close()
+```
+
+## 事件
+
+> 以下事件参数与微信小程序 [`socket`](https://developers.weixin.qq.com/miniprogram/dev/api/socket-task.html) 回掉函数参数 一致
+
+### onOpen(e)
+
+### onMessage(e)
+
+### onClose(e)
+
+### onError(e)
+
+### onReconnect(e)
+
+- 同`onError`事件参数
+
+### onMaximum(e)
+
+- 同`onError`事件参数
+
+# qrcode 二维码
+
+> 本想仿照 jquery-qrcode 写个库，基于 qrcode.js 这个库.但是搜索发现已有 weapp-qrcode 已实现了，但是不满足 业务需求,在 weapp-qrcode 基础上，增加了一些属性.
+
+## drawQrcode(options)
+
+- 参数
+
+  - `{ Object } options`
+
+    - `{ String } canvasId`: 小程序 canvas id
+    - `{ String } [text]`: 二维码内容
+    - `{ Number } [sx]`: canvas x 坐标轴
+    - `{ Number } [sy]`: canvas y 坐标轴
+    - `{ Boolean } [reserve]`: 是否接着上一次绘制
+    - `{ Number } [width]`: 二维码宽度
+    - `{ Number } [height]`: 二维码高度
+    - `{ Number } [typeNumber]`: 二维码的计算模式，默认值-1
+    - `{ Number } [correctLevel]`: 二维码纠错级别，默认值为高级，取值：`{ L: 1, M: 0, Q: 3, H: 2 }`
+    - `{ String } [background]`: 二维码背景颜色
+    - `{ String } [foreground]`: 二维码前景色
+
+* 默认
+
+```js
+options = {
+  text: '',
+  sx: 0,
+  sy: 0,
+  reserve: false,
+  width: 256,
+  height: 256,
+  typeNumber: -1,
+  correctLevel: QRErrorCorrectLevel.H,
+  background: '#ffffff',
+  foreground: '#000000'
+}
+```
+
+- 使用
+
+```js
+import drawQrCode from 'mini-program-utils/dist/qrcode'
+drawQrCode({
+  canvasId: '',
+  text: 'https://onlylonger.github.io/mini-program-utils',
+  sx: 0,
+  sy: 0,
+  reserve: false,
+  width: 256,
+  height: 256,
+  typeNumber: -1,
+  correctLevel: QRErrorCorrectLevel.H,
+  background: '#ffffff',
+  foreground: '#000000'
+})
 ```
