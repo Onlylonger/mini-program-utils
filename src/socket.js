@@ -1,18 +1,3 @@
-const noop = () => {}
-
-/**
- * @param {object} opts
- * url: {string} socket链接地址
- * timeout: {number} 重连间隔时间
- * maxAttempts: {number} 重连最大次数
- *
- * onMessage: {function} 下行消息
- * onClose: {function} 连接断开
- * onError: {function} 连接出错
- * onOpen: {function} 连接打开
- * onReconnect: {function} 重连
- * onMaximum: {function} 已达到最大次数
- */
 export default class Socket {
   ws = null
   num = 0
@@ -56,13 +41,14 @@ export default class Socket {
         }, this.timeout)
       : this.opts.onMaximum && this.opts.onMaximum(e)
   }
-  json(data) {
-    this.ws.send({ data: JSON.stringify(data) })
-  }
   send(data) {
-    this.ws.send({ data })
+    if (typeof data === 'string') {
+      this.wx.send({ data })
+    } else {
+      this.ws.send({ data: JSON.stringify(data) })
+    }
   }
-  close(a, b) {
-    this.ws.close(a, b)
+  close(code = 1000, reason = '前端正常关闭') {
+    this.ws.close({ code, reason })
   }
 }
