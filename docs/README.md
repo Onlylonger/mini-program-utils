@@ -1,5 +1,7 @@
 # 使用
 
+> 依赖于微信 wx 库
+
 > 原生小程序
 
 将 dist 目录中对应文件模块拷贝到项目中使用, dist 目录文件已经经过 babel 转译
@@ -86,9 +88,3 @@ socket.send({
 ```js
 socket.close()
 ```
-
-# qrcode
-
-## utils
-
-# Demo
