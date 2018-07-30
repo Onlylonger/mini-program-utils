@@ -11,6 +11,14 @@
     "type": "git",
     "url": "https://github.com/Onlylonger/mini-program-utils"
   },
+  "keywords": [
+    "qrcode",
+    "socket",
+    "utils",
+    "小程序",
+    "直播冒泡",
+    "二维码"
+  ],
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
