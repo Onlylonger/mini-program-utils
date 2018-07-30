@@ -181,3 +181,67 @@ drawQrCode({
   foreground: '#000000'
 })
 ```
+
+# bubble 图片冒泡特效
+
+![Bubble效果](./static/gif/bubble.gif)
+
+## Bubble(ops)
+
+- 参数
+
+  - `{ Object } ops`
+
+    - `{ String } canvasId`: 小程序 canvas id
+    - `{ Number } canvasWidth`: canvas 的宽度 px
+    - `{ Number } canvasHeight`: canvas 的宽度 px
+
+- 使用
+
+```js
+// 小程序 规定屏幕宽为750rpx
+const sysInfo = wx.getSystemInfoSync()
+const radio = sysInfo.windowWidth / 750
+
+const bubble = new Bubble({
+  canvasId: 'firstCanvas',
+  canvasWidth: radio * 300,
+  canvasHeight: radio * 400
+})
+```
+
+## setEntity(entity)
+
+- 参数
+
+  - `{ Object } entity`
+
+    - `{ String } url`: 图片本地地址, 暂不支持网络资源
+    - `{ String } width`: 图片的宽度 px
+    - `{ String } height`: 图片的高度 px
+    - `{ Number } duration`: 图片动画时间 毫秒
+    - `{ Function } endCb`: 图片消失前回掉函数
+
+- 使用
+
+```js
+import random from 'lodash.random'
+
+const ary = [
+  {
+    url: '../imgs/icon_heart.png',
+    width: radio * 50,
+    height: radio * 50,
+    endCb() {
+      console.log('okla')
+    }
+  },
+  {
+    url: '../imgs/success.png',
+    width: 100 * radio,
+    height: 100 * radio
+  }
+]
+const num = random(0, ary.length - 1)
+this.bubble.setEntity(ary[num])
+```
