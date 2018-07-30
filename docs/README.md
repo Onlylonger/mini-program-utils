@@ -199,6 +199,7 @@ drawQrCode({
 - 使用
 
 ```js
+import Bubble from 'mini-program-utils/dist/bubble'
 // 小程序 规定屏幕宽为750rpx
 const sysInfo = wx.getSystemInfoSync()
 const radio = sysInfo.windowWidth / 750
