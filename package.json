@@ -1,7 +1,7 @@
 {
   "name": "mini-program-utils",
   "version": "0.1.6",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "license": "MIT",
   "scripts": {
     "dev": "babel -w --presets env,stage-1 ./src -d dist",

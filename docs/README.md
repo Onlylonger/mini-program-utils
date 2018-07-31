@@ -2,7 +2,25 @@
 
 > 原生小程序
 
-将 dist 目录中对应文件模块拷贝到项目中使用, dist 目录文件已经经过 babel 转译
+- 如果 小程序基础库版本 >= 2.2.1 [小程序原生 npm 支持， 需要下载 beta 开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)
+
+```zsh
+// 项目中安装 mini-program-utils
+npm install mini-program-utils --production
+```
+
+```js
+const miniUtils = require('mini-program-utils').default
+
+const { drawQrCode, Bubble, Socket } = miniUtils
+.....
+```
+
+<!-- `Tips:` 原生支持的 npm 策略会将依赖的文件全部打包入 index.js, 造成冗余 -->
+
+- 如果 < 2.2.1
+
+  将 dist 目录中对应文件模块拷贝到项目中使用, dist 目录文件已经经过 babel 转译
 
 > 基于 wepy 框架
 
