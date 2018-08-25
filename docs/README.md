@@ -264,3 +264,10 @@ const ary = [
 const num = random(0, ary.length - 1)
 this.bubble.setEntity(ary[num])
 ```
+
+# antv-f2
+
+> 依赖
+
+- @antv/f2@3.1.21
+- wolfy87-eventemitter

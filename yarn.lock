@@ -1490,6 +1490,10 @@ wide-align@^1.1.0:
   dependencies:
     string-width "^1.0.2 || 2"
 
+wolfy87-eventemitter@^5.2.5:
+  version "5.2.5"
+  resolved "https://registry.npmjs.org/wolfy87-eventemitter/-/wolfy87-eventemitter-5.2.5.tgz#e7af2adbb84e481c65edeb2a2e01032c8ff1b88f"
+
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
